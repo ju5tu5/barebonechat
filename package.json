@@ -1,0 +1,27 @@
+{
+  "name": "barebonechat",
+  "version": "1.0.0",
+  "description": "It's a barebone chat app used as an example in a course on realtime web apps.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ju5tu5/barebonechat.git"
+  },
+  "keywords": [
+    "express",
+    "socket.io"
+  ],
+  "author": "Justus Sturkenboom <justus@ju5tu5.nl>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/ju5tu5/barebonechat/issues"
+  },
+  "homepage": "https://github.com/ju5tu5/barebonechat#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.0.0"
+  }
+}
