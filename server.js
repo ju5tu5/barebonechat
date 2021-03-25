@@ -22,6 +22,6 @@ io.on('connection', (socket) => {
   })
 })
 
-http.listen(4242, () => {
-  console.log('listening on 4242')
+http.listen(80, () => {
+  console.log('listening on port 80')
 })
