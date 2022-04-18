@@ -8,26 +8,32 @@ body {
   min-width: 100vw;
   /* background: rgb(239, 238, 238); */
   background: rgba(188, 105, 138, 0.5);
-  background-image: radial-gradient(circle at bottom left, rgba(255, 255, 0, .9), rgba(255, 255, 0, 0) 70%), radial-gradient(circle at top left, rgba(255, 0, 0, 1), rgba(255, 0, 0, 0) 70%), radial-gradient(circle at center right, rgba(255, 0, 255, .8), rgba(255, 0, 255, 0) 50%);
+  background-image: radial-gradient(
+      circle at bottom left,
+      rgba(255, 255, 0, 0.9),
+      rgba(255, 255, 0, 0) 70%
+    ),
+    radial-gradient(circle at top left, rgba(255, 0, 0, 1), rgba(255, 0, 0, 0) 70%),
+    radial-gradient(circle at center right, rgba(255, 0, 255, 0.8), rgba(255, 0, 255, 0) 50%);
   background-size: 200% 200%;
   animation: movement 30s ease infinite alternate-reverse;
 }
 
 @keyframes movement {
   0% {
-    background-position: 0% 0%
+    background-position: 0% 0%;
   }
   25% {
-    background-position: 50% 0%
+    background-position: 50% 0%;
   }
   50% {
-    background-position: 100% 50%
+    background-position: 100% 50%;
   }
   75% {
-    background-position: 50% 100%
+    background-position: 50% 100%;
   }
   100% {
-    background-position: 100% 100%
+    background-position: 100% 100%;
   }
 }
 
@@ -49,7 +55,8 @@ section {
   backdrop-filter: blur(1rem);
   border-radius: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: .8rem .8rem 1.6rem 0 rgba(206, 205, 205, .5), -.8rem -.8rem 1.6rem 0 rgba(255, 255, 255, .5);
+  box-shadow: 0.8rem 0.8rem 1.6rem 0 rgba(206, 205, 205, 0.5),
+    -0.8rem -0.8rem 1.6rem 0 rgba(255, 255, 255, 0.5);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -65,7 +72,7 @@ section h1 {
 }
 
 section h1 span {
-  font-size: .5rem;
+  font-size: 0.5rem;
   display: inline-block;
   width: 4.5rem;
   color: magenta;
@@ -74,16 +81,20 @@ section h1 span {
 
 section ul {
   margin: 0;
-  padding: .2em;
+  padding: 0.2em;
   list-style-type: none;
   flex-grow: 2;
   width: 18em;
-  overflow-x: scroll;
+  overflow-y: scroll;
 }
 
-section ul>li {
+::-webkit-scrollbar {
+  background: transparent;
+}
+
+section ul > li {
   padding: 0.5rem 1rem;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 section form {
@@ -94,14 +105,14 @@ section form {
   display: flex;
 }
 
-section form input[type=text] {
+section form input[type='text'] {
   margin: 0;
   padding: 0 1rem;
   border: none;
   height: 2rem;
   flex-grow: 2;
   background: rgb(239, 238, 238);
-  box-shadow: inset .2rem .2rem .3rem 0 rgba(209, 205, 199, .5);
+  box-shadow: inset 0.2rem 0.2rem 0.3rem 0 rgba(209, 205, 199, 0.5);
   border-top-left-radius: 2rem;
   border-bottom-left-radius: 2rem;
   border: 0;
@@ -109,11 +120,11 @@ section form input[type=text] {
   outline: none;
 }
 
-section form>button {
-  padding: 0 .6rem 0 .4rem;
+section form > button {
+  padding: 0 0.6rem 0 0.4rem;
   width: 2rem;
   background: rgb(239, 238, 238);
-  box-shadow: inset -.2rem .2rem .3rem 0 rgba(209, 205, 199, .5);
+  box-shadow: inset -0.2rem 0.2rem 0.3rem 0 rgba(209, 205, 199, 0.5);
   border-top-right-radius: 2rem;
   border-bottom-right-radius: 2rem;
   border: 0;
@@ -122,19 +133,19 @@ section form>button {
   transition: 0.2s;
 }
 
-section form>button span {
+section form > button span {
   display: none;
 }
 
-section form>button::after {
+section form > button::after {
   content: '⇒';
 }
 
-section form>button:hover {
+section form > button:hover {
   padding-left: 1rem;
 }
 
-section form>button:active {
+section form > button:active {
   padding-left: 1rem;
   color: red;
 }
