@@ -5,10 +5,18 @@ import * as path from 'path'
 import { Server } from 'socket.io'
 import { createServer } from 'http'
 import express from 'express'
+import { log } from 'console'
 
 const app = express()
 const http = createServer(app)
-const io = new Server(http)
+const io = new Server(http, {
+  connectionStateRecovery: {
+    // De tijdsduur voor recovery bij disconnect
+    maxDisconnectionDuration: 2 * 60 * 1000,
+    // Of middlewares geskipped moeten worden bij recovery (ivm login)
+    skipMiddlewares: true,
+  },
+})
 const port = process.env.PORT || 4242
 const apiUrl = 'https://whois.fdnd.nl/api/v1/squad?id=cldcspecf0z0o0bw59l8bwqim'
 
@@ -26,7 +34,7 @@ fetchJson(apiUrl).then((data) => {
   // doe hier iets nuttigs met de data..
   htmlMemberList = renderMembers(data.squad.members)
   membersLoaded = true
-  console.log(htmlMemberList)
+  // console.log(htmlMemberList)
 })
 
 // Serveer client-side bestanden
@@ -34,9 +42,14 @@ app.use(express.static(path.resolve('public')))
 
 io.on('connection', (socket) => {
   // Log de connectie naar console
-  console.log('a user connected')
+  if (socket.recovered) {
+    console.log('Existing user reconnected.')
+  } else {
+    console.log('New user connected')
+  }
+
   // Stuur de historie door, let op: luister op socket, emit op io!
-  io.emit('history', history)
+  socket.emit('history', history)
 
   // Luister naar een message van een gebruiker
   socket.on('message', (message) => {

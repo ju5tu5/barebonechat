@@ -10,6 +10,26 @@ document.querySelector('form').addEventListener('submit', (event) => {
   }
 })
 
+socket.on('connect', () => {
+  console.log('Connected', socket.id) // x8WIv7-mJelg7on_ALbx
+})
+
+socket.on('disconnect', (reason) => {
+  if (reason === 'io server disconnect') {
+    console.log('Disconnection initiated by the server, reconnecting..')
+    socket.connect()
+  }
+  console.log('Lost connection.. Reconnecting..')
+})
+
+socket.io.on('reconnect_attempt', () => {
+  console.log('Reconnection attempt!')
+})
+
+socket.on('reconnect', () => {
+  console.log('Reconnected', socket.id)
+})
+
 socket.on('message', (message) => {
   addMessage(message)
 })
