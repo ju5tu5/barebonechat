@@ -18,7 +18,7 @@ const io = new Server(http, {
   },
 })
 const port = process.env.PORT || 4242
-const apiUrl = 'https://whois.fdnd.nl/api/v1/squad?id=cldcspecf0z0o0bw59l8bwqim'
+// const apiUrl = 'https://whois.fdnd.nl/api/v1/squad?id=cldcspecf0z0o0bw59l8bwqim'
 
 const historySize = 50
 
@@ -30,12 +30,12 @@ let htmlMemberList = null
 // setInterval(longPollExample, 2500, io)
 
 // Voorbeeld waarbij API data met filter, map en reduce wordt vertaald naar HTML
-fetchJson(apiUrl).then((data) => {
-  // doe hier iets nuttigs met de data..
-  htmlMemberList = renderMembers(data.squad.members)
-  membersLoaded = true
-  // console.log(htmlMemberList)
-})
+// fetchJson(apiUrl).then((data) => {
+//   // doe hier iets nuttigs met de data..
+//   htmlMemberList = renderMembers(data.squad.members)
+//   membersLoaded = true
+//   // console.log(htmlMemberList)
+// })
 
 // Serveer client-side bestanden
 app.use(express.static(path.resolve('public')))
