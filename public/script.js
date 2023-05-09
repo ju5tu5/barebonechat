@@ -10,8 +10,9 @@ document.querySelector('form').addEventListener('submit', (event) => {
   }
 })
 
+// CONNECTION LOGGERS
 socket.on('connect', () => {
-  console.log('Connected', socket.id) // x8WIv7-mJelg7on_ALbx
+  console.log('Connected using id', socket.id)
 })
 
 socket.on('disconnect', (reason) => {
@@ -19,7 +20,7 @@ socket.on('disconnect', (reason) => {
     console.log('Disconnection initiated by the server, reconnecting..')
     socket.connect()
   }
-  console.log('Lost connection.. Reconnecting..')
+  console.log('Lost connection.. reconnecting..')
 })
 
 socket.io.on('reconnect_attempt', () => {
@@ -27,9 +28,10 @@ socket.io.on('reconnect_attempt', () => {
 })
 
 socket.on('reconnect', () => {
-  console.log('Reconnected', socket.id)
+  console.log('Reconnected using id', socket.id)
 })
 
+// FUNCTIONAL LISTENERS
 socket.on('message', (message) => {
   addMessage(message)
 })
