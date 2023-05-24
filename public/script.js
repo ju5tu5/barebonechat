@@ -65,20 +65,20 @@ ioServer.io.on('reconnect', (attempt) => {
 })
 
 // De server stuurt doorlopend pings om te kijken of de boel online is
-ioServer.io.on('ping'() => {
+ioServer.io.on('ping', () => {
   // ...
 })
 
 // Als het reconnecten niet goed gaat
-ioServer.io.on("reconnect_error", (error) => {
+ioServer.io.on('reconnect_error', (error) => {
   // ...
-});
+})
 
 // Reconnecten is een aantal keer (reconnectionAttempts) geprobeerd en faalt
 // het reconnecten stopt, misschien handig voor een 'probeer opnieuw' knop.
-ioServer.io.on("reconnect_failed", () => {
+ioServer.io.on('reconnect_failed', () => {
   // ...
-});
+})
 
 /**
  * Impure function that appends a new li item holding the passed message to the
