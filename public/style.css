@@ -160,10 +160,12 @@ span.loading {
 }
 
 span.empty {
+  display: none;
   color: light-grey;
 }
 
 span.offline {
+  display: none;
   color: red;
 }
 
